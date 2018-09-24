@@ -12,6 +12,14 @@ namespace server_protocol
     {
         static void Main(string[] args)
         {
+            string clapBack = "What the smurf did you just smurfing say about me, you little smurf? " +
+                "I'll have you know I graduated top of my class at UC, and I've been involved in numerous HackAThons on 4 hours of sleep, " +
+                "and I have over 300 confirmed seg faults. I am trained in Fortran and I'm the top coder in the entire class of 2020. " +
+                "You are nothing to me but just another bug. " +
+                "I will wipe you the smurf out with precision the likes of which has never been seen before on this Earth, mark my smurfing words. " +
+                "You think you can get away with saying that crap to me over GroupMe? Think again, smurfer. " +
+                "As we speak I am contacting my secret network of hackers across the USA and your IP is being traced right now so you better prepare for the storm, maggot. " +
+                "The storm that wipes out the pathetic little thing you call your career. You're smurfing dead, kiddo. ";
             IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress ip = ipHost.AddressList[0];
             IPEndPoint endpoint = new IPEndPoint(ip, 8080);
@@ -39,8 +47,17 @@ namespace server_protocol
                             break;
                         }
                         Console.WriteLine(message);
- 
-                        byte[] msg = Encoding.ASCII.GetBytes("Delivered");
+                        byte[] msg = null;
+
+                        if (message == "Jerk")
+                        {
+                            msg = Encoding.ASCII.GetBytes(clapBack);
+                        }
+                        else
+                        {
+                            msg = Encoding.ASCII.GetBytes("Delivered");
+                        }
+                        
                         clientHandler.Send(msg);
                     }
 
