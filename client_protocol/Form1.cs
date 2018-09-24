@@ -30,9 +30,9 @@ namespace client_protocol
                 Socket client = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 client.Connect(endpoint);
-                textBox2.Text += "Client connected to RE\n";
+                textBox2.Text += "Client connected to RE";
 
-                byte[] msg = Encoding.ASCII.GetBytes(textBox1.Text.ToString()+"<EOF>");
+                byte[] msg = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
 
                 int bytesSent = client.Send(msg);
                 textBox2.Text += "Client sending message\n";
@@ -41,8 +41,8 @@ namespace client_protocol
                 textBox2.Text += "Client message received: ";
                 textBox2.Text += Encoding.ASCII.GetString(bytes);
 
-                client.Shutdown(SocketShutdown.Both);
-                client.Close();
+                //client.Shutdown(SocketShutdown.Both);
+                //client.Close();
             }
             catch (ArgumentNullException ane) {  
                 Console.WriteLine("ArgumentNullException : {0}",ane.ToString());  

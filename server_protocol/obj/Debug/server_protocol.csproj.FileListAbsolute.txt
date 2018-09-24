@@ -4,3 +4,9 @@ C:\Users\Kyle\Documents\ComputerNetworks\server_protocol\bin\Debug\server_protoc
 C:\Users\Kyle\Documents\ComputerNetworks\server_protocol\obj\Debug\server_protocol.csprojResolveAssemblyReference.cache
 C:\Users\Kyle\Documents\ComputerNetworks\server_protocol\obj\Debug\server_protocol.exe
 C:\Users\Kyle\Documents\ComputerNetworks\server_protocol\obj\Debug\server_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\bin\Debug\server_protocol.exe.config
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\obj\Debug\server_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\obj\Debug\server_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\bin\Debug\server_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\bin\Debug\server_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\server_protocol\obj\Debug\server_protocol.csprojResolveAssemblyReference.cache

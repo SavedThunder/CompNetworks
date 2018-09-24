@@ -7,3 +7,12 @@ C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protoc
 C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.csproj.GenerateResource.Cache
 C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.exe
 C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.exe.config
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.Form1.resources
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.Properties.Resources.resources
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.csproj.GenerateResource.Cache

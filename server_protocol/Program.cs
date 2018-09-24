@@ -27,27 +27,29 @@ namespace server_protocol
 
                 while (true)
                 {
-                    Socket clientHandler = receiver.Accept();
-                    message = null;
-
+                    Socket clientHandler;
                     while (true)
                     {
+                        clientHandler = receiver.Accept();
+                        message = null;
                         int recieved = clientHandler.Receive(bytes);
                         message += ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
                         if (message.IndexOf("<EOF>") > -1)
                         {
                             break;
                         }
+                        Console.WriteLine(message);
+ 
+                        byte[] msg = Encoding.ASCII.GetBytes("Delivered");
+                        clientHandler.Send(msg);
                     }
-                    Console.WriteLine(message);
-                    // Echo the data back to the client.  
-                    byte[] msg = Encoding.ASCII.GetBytes("Delivered");
-                    clientHandler.Send(msg);
+
+                    clientHandler.Shutdown(SocketShutdown.Both);
+                    clientHandler.Close();
                     Console.Read();
                 }
 
-                receiver.Shutdown(SocketShutdown.Both);
-                receiver.Close();
+
             }
             catch(Exception ex)
             {
