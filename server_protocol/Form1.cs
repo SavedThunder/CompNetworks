@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace WindowsFormsApp4
 {
@@ -17,6 +18,33 @@ namespace WindowsFormsApp4
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private static byte[] ReceiveVarData(Socket s)
+        {
+            int total = 0;
+            int recv;
+            byte[] datasize = new byte[4];
+
+            recv = s.Receive(datasize, 0, 4, 0);
+            int size = BitConverter.ToInt32(datasize, 0);
+            int dataleft = size;
+            byte[] data = new byte[size];
+
+
+            while (total < size)
+            {
+
+                    recv = s.Receive(data, total, dataleft, 0);
+                    if (recv == 0)
+                    {
+                        break;
+                    }
+                    total += recv;
+                    dataleft -= recv;
+                
+            }
+            return data;
         }
 
         private void StartCon_Click(object sender, EventArgs e)
@@ -34,13 +62,13 @@ namespace WindowsFormsApp4
             IPEndPoint endpoint = new IPEndPoint(ip, 8080);
 
             Socket receiver = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[1024 * 500];
             string message = null;
 
             try
             {
                 receiver.Bind(endpoint);    //Throws exception if address/port already in use
-                receiver.Listen(5);   //Will only allow 20 clients in communication queue
+                receiver.Listen(5);   //Will only allow 5 clients in communication queue
 
                 while (true)
                 {
@@ -50,8 +78,12 @@ namespace WindowsFormsApp4
                         clientHandler = receiver.Accept();
                         message = null;
                         int recieved = clientHandler.Receive(bytes);
-                        if (true)
+                        clientHandler.Send(Encoding.ASCII.GetBytes("OK"));
+                        message = ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
+                        if (message == "1")
                         {
+                            message = null;
+                            recieved = clientHandler.Receive(bytes);
                             message += ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
                             if (message.IndexOf("<EOF>") > -1)
                             {
@@ -72,21 +104,62 @@ namespace WindowsFormsApp4
                             clientHandler.Send(msg);
 
                         }
-                        else
+                        else if (message == "2")
                         {
+                            recieved = clientHandler.Receive(bytes);
+                            int z = 0;
+                            pictureBox1.Image = null;
+                            while (true)
+                            {
+                                try
+                                {
+                                    bytes = ReceiveVarData(clientHandler);
+                                }
+                                catch(Exception ex)
+                                {
+                                    MainText.Text = ex.ToString();
+                                    Application.DoEvents();
+                                }
+                                MemoryStream ms = new MemoryStream(bytes);
+                                //MainText.Text = "RIght before the try";
+                                //Application.DoEvents();
+                                try
+                                {
+                                    //MainText.Text = "We in da try";
+                                    //Application.DoEvents();
+                                    //Image bmp = Image.FromStream(ms);
+                                    System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
+                                    Image bmp = (Image)converter.ConvertFrom(bytes);
+                                    MainText.Text = "After bmp =";
+                                    Application.DoEvents();
+                                    pictureBox1.Image = bmp;
+                                    MainText.Text = "Made the pic into the box";
+                                    Application.DoEvents();
+                                    break;
+                                }
+                                catch (ArgumentException ex)
+                                {
+                                    MainText.Text = ex.ToString();
+                                    Application.DoEvents();
+                                }
+                                if (bytes.Length == 0)
+                                {
+                                    receiver.Listen(10);
+                                }
+                            }
+                            //clientHandler.Send(Encoding.ASCII.GetBytes("OK"));
+                            break;
                         }
                     }
 
-                    clientHandler.Shutdown(SocketShutdown.Both);
-                    clientHandler.Close();
-                    Console.Read();
+                    //clientHandler.Shutdown(SocketShutdown.Both);
+                    //clientHandler.Close();
                 }
-
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                MainText.Text = ex.ToString();
                 Console.Read();
             }
         }
