@@ -1,0 +1,28 @@
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\bin\Debug\client_protocol.exe.config
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\bin\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\bin\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.Form1.resources
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.Properties.Resources.resources
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.csproj.GenerateResource.Cache
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\ComputerNetworks\client_protocol\obj\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.exe.config
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.exe
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\bin\Debug\client_protocol.pdb
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.Form1.resources
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.Properties.Resources.resources
+C:\Users\Kyle\Documents\GitHub\CompNetworks\client_protocol\obj\Debug\client_protocol.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\bin\Debug\client_protocol.exe.config
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\bin\Debug\client_protocol.exe
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\bin\Debug\client_protocol.pdb
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.csprojAssemblyReference.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.Form1.resources
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.Properties.Resources.resources
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.csproj.GenerateResource.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.exe
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\client_protocol\obj\Debug\client_protocol.pdb

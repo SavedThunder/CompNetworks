@@ -1,0 +1,9 @@
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.csprojAssemblyReference.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.Properties.Resources.resources
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.csproj.GenerateResource.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\bin\Debug\server_protocol.exe.config
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\bin\Debug\server_protocol.exe
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\bin\Debug\server_protocol.pdb
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.exe
+C:\Users\Owner\Documents\College Homework\Computing Systems\Protocol\CompNetworks\server_protocol2\server_protocol\obj\Debug\server_protocol.pdb
