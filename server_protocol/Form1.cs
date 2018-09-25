@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
@@ -18,33 +13,6 @@ namespace WindowsFormsApp4
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private static byte[] ReceiveVarData(Socket s)
-        {
-            int total = 0;
-            int recv;
-            byte[] datasize = new byte[4];
-
-            recv = s.Receive(datasize, 0, 4, 0);
-            int size = BitConverter.ToInt32(datasize, 0);
-            int dataleft = size;
-            byte[] data = new byte[size];
-
-
-            while (total < size)
-            {
-
-                    recv = s.Receive(data, total, dataleft, 0);
-                    if (recv == 0)
-                    {
-                        break;
-                    }
-                    total += recv;
-                    dataleft -= recv;
-                
-            }
-            return data;
         }
 
         private void StartCon_Click(object sender, EventArgs e)
@@ -82,14 +50,14 @@ namespace WindowsFormsApp4
                         message = ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
                         if (message == "1")
                         {
-                            message = null;
                             recieved = clientHandler.Receive(bytes);
-                            message += ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
+                            message = ASCIIEncoding.ASCII.GetString(bytes, 0, recieved);
                             if (message.IndexOf("<EOF>") > -1)
                             {
                                 break;
                             }
-                            MainText.Text = message;
+                            MainText.AppendText(message);
+                            MainText.AppendText(Environment.NewLine);
                             Application.DoEvents();
                             byte[] msg = null;
 
@@ -102,39 +70,22 @@ namespace WindowsFormsApp4
                                 msg = Encoding.ASCII.GetBytes("Delivered");
                             }
                             clientHandler.Send(msg);
-
                         }
                         else if (message == "2")
                         {
                             recieved = clientHandler.Receive(bytes);
-                            int z = 0;
                             pictureBox1.Image = null;
                             while (true)
                             {
-                                try
-                                {
-                                    bytes = ReceiveVarData(clientHandler);
-                                }
-                                catch(Exception ex)
-                                {
-                                    MainText.Text = ex.ToString();
-                                    Application.DoEvents();
-                                }
                                 MemoryStream ms = new MemoryStream(bytes);
-                                //MainText.Text = "RIght before the try";
-                                //Application.DoEvents();
                                 try
                                 {
-                                    //MainText.Text = "We in da try";
-                                    //Application.DoEvents();
-                                    //Image bmp = Image.FromStream(ms);
                                     System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
                                     Image bmp = (Image)converter.ConvertFrom(bytes);
-                                    MainText.Text = "After bmp =";
                                     Application.DoEvents();
                                     pictureBox1.Image = bmp;
-                                    MainText.Text = "Made the pic into the box";
                                     Application.DoEvents();
+                                    clientHandler.Send(Encoding.ASCII.GetBytes("Image Delivered"));
                                     break;
                                 }
                                 catch (ArgumentException ex)
@@ -146,27 +97,19 @@ namespace WindowsFormsApp4
                                 {
                                     receiver.Listen(10);
                                 }
+                                ms.Close();
+                                ms.Dispose();
                             }
-                            //clientHandler.Send(Encoding.ASCII.GetBytes("OK"));
                             break;
                         }
                     }
-
-                    //clientHandler.Shutdown(SocketShutdown.Both);
-                    //clientHandler.Close();
                 }
-
             }
             catch (Exception ex)
             {
                 MainText.Text = ex.ToString();
                 Console.Read();
             }
-        }
-
-        private void MainText_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

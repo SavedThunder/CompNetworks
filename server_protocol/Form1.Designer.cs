@@ -39,10 +39,10 @@
             this.MainText.Location = new System.Drawing.Point(39, 36);
             this.MainText.Multiline = true;
             this.MainText.Name = "MainText";
+            this.MainText.ReadOnly = true;
             this.MainText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MainText.Size = new System.Drawing.Size(316, 305);
             this.MainText.TabIndex = 1;
-            this.MainText.TextChanged += new System.EventHandler(this.MainText_TextChanged);
             // 
             // StartCon
             // 
@@ -56,7 +56,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(371, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(361, 36);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(802, 725);
             this.pictureBox1.TabIndex = 4;

@@ -34,8 +34,6 @@ namespace client_protocol
                 Socket client = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 client.Connect(endpoint);
-                //textBox2.AppendText(Environment.NewLine);
-                textBox2.Text = "";
 
                 byte[] pre_msg = Encoding.ASCII.GetBytes("1");
                 byte[] msg = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
@@ -44,16 +42,10 @@ namespace client_protocol
                 int prebytesRec = client.Receive(bytes);
 
                 int bytesSent = client.Send(msg);
-                //textBox2.AppendText(Environment.NewLine);
-                //textBox2.Text += "Client sending message";
-
                 int bytesRec = client.Receive(bytes);
-                //textBox2.AppendText(Environment.NewLine);
-                //textBox2.Text += "Client message received: ";
-                textBox2.Text += Encoding.ASCII.GetString(bytes);
 
-                //client.Shutdown(SocketShutdown.Both);
-                //client.Close();
+                textBox2.Text += Encoding.ASCII.GetString(bytes);
+                textBox2.AppendText(Environment.NewLine);
             }
             catch (ArgumentNullException ane) {  
                 Console.WriteLine("ArgumentNullException : {0}",ane.ToString());  
@@ -64,21 +56,11 @@ namespace client_protocol
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Bitmap pic_image = null;
             OpenFileDialog image = new OpenFileDialog();
-            //image.Filter = "Image Files (*.jpg; *.png;)|*.jpg, *.png";
+            image.Filter = "Image Files (*.jpg, *.png) | *.jpg; *.png";
             if (image.ShowDialog() == DialogResult.OK)
             {
                 pic_image = new Bitmap(image.FileName);
@@ -102,22 +84,16 @@ namespace client_protocol
                 Socket client = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 client.Connect(endpoint);
-                //textBox2.AppendText(Environment.NewLine);
                 byte[] pre_msg = Encoding.ASCII.GetBytes("2");
 
                 int prebytesSent = client.Send(pre_msg);
                 int prebytesRec = client.Receive(bytes);
 
                 int bytesSent = client.Send(pic_im_Bytes);
-                //textBox2.AppendText(Environment.NewLine);
-                //textBox2.Text += "Client sending message";
+                int bytesRec = client.Receive(bytes);
 
-                //int bytesRec = client.Receive(bytes);
-                //textBox2.AppendText(Environment.NewLine);
-                //textBox2.Text += "Client message received: ";
-
-                //client.Shutdown(SocketShutdown.Both);
-                //client.Close();
+                textBox2.Text += Encoding.ASCII.GetString(bytes);
+                textBox2.AppendText(Environment.NewLine);
             }
             catch (ArgumentNullException ane)
             {
@@ -131,6 +107,8 @@ namespace client_protocol
             {
                 Console.WriteLine("Unexpected exception : {0}", ue.ToString());
             }
+            ms.Close();
+            ms.Dispose();
         }
     }
 }
